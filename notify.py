@@ -18,5 +18,5 @@ if availability == 'Available':
     message = client.messages.create (
         to = os.getenv('RECIPIENT'),
         from_= os.getenv('SENDER'),
-        body = "The playstation 5 is in stock now on Gamestop.com"
+        body = "The playstation 5 is in stock now at Gamestop.com"
     )
