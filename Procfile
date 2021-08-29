@@ -1,2 +1,1 @@
-web: python notify.py
-worker: python notify.py 
+python notify.py
