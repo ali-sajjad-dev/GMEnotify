@@ -11,6 +11,7 @@ auth_token = os.getenv('TOKEN')
 
 client = Client(account_sid, auth_token)
 
+
 proxies = get_proxies()
 availability = requestGME(proxies)
 
