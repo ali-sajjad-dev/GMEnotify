@@ -25,24 +25,22 @@ def get_proxies():
             proxies.append(proxy)
     return proxies
 
-def parseHTML(response):
+def parse_HTML(response):
     soup = BeautifulSoup(response.content, "html.parser")
     results = soup.find(id="add-to-cart")
     value = str(results["data-gtmdata"])
-    valueJSON = json.loads(value)
-    return valueJSON['productInfo']['availability']
+    value_JSON = json.loads(value)
+    return value_JSON['productInfo']['availability']
 
-def requestGME(proxies):
+def request_GME(proxies):
     random = randrange(len(proxies))
     proxy = proxies[random]
-    print(proxy)
-    print(headers['User-Agent'])
     try:
         response = requests.get(URL, headers=headers, proxies={'http': 'http://' + proxy, 'https': 'https://' + proxy}, timeout=10)
         if response.status_code == 200:
-            availability = parseHTML(response)
+            availability = parse_HTML(response)
             return availability
     except:
         print('Connection Error with request')
         headers['User-Agent'] = user_agent.random
-        return requestGME(proxies)
+        return request_GME(proxies)
