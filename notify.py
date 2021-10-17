@@ -1,7 +1,7 @@
 import os
 from twilio.rest import Client
 from dotenv import load_dotenv
-from scraper import requestGME
+from scraper import request_GME
 from scraper import get_proxies
 
 load_dotenv()
@@ -13,7 +13,7 @@ client = Client(account_sid, auth_token)
 
 
 proxies = get_proxies()
-availability = requestGME(proxies)
+availability = request_GME(proxies)
 
 if availability == 'Available':
     message = client.messages.create (
