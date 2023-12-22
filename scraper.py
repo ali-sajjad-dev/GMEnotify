@@ -6,7 +6,6 @@ from lxml.html import fromstring
 from bs4 import BeautifulSoup
 
 user_agent = UserAgent()
-
 URL = "https://www.gamestop.com/consoles-hardware/playstation-5/consoles/products/sony-playstation-5-console/11108140.html?condition=New"
 
 headers = {
